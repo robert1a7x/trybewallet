@@ -1,7 +1,47 @@
 import React, { Component } from 'react';
+import PaymentMethod from './PaymentMethod';
+import Tag from './Tag';
 
 export default class ExpensesForm extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      coins: [],
+      value: '',
+      coin: '',
+      payment: '',
+      tag: '',
+      description: '',
+    };
+
+    this.fetchCoinsNames = this.fetchCoinsNames.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchCoinsNames();
+  }
+
+  async fetchCoinsNames() {
+    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const responseJson = await response.json();
+
+    const coinsWithoutUSDT = Object.keys(responseJson).filter((coin) => coin !== 'USDT');
+
+    this.setState({ coins: coinsWithoutUSDT });
+  }
+
+  handleChange({ target }) {
+    const { name, value } = target;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
+    const { coins, value, coin, payment, tag, description } = this.state;
     return (
       <form>
         <label htmlFor="value">
@@ -10,42 +50,28 @@ export default class ExpensesForm extends Component {
             type="number"
             name="value"
             id="value"
+            value={ value }
+            onChange={ this.handleChange }
           />
         </label>
-
         <label htmlFor="coin">
           Moeda:
-          <select name="coin" id="coin">
-            <option value="vazio">Vazio por enquanto</option>
+          <select name="coin" id="coin" value={ coin } onChange={ this.handleChange }>
+            { coins.map((coinShort, i) => (
+              <option value={ coinShort } key={ i }>{ coinShort }</option>
+            )) }
           </select>
         </label>
-
-        <label htmlFor="paymentMethod">
-          Método de pagamento:
-          <select name="paymentMethod" id="paymentMethod" value="nada ainda">
-            <option value="dinheiro">Dinheiro</option>
-            <option value="crédito">Cartão de crédito</option>
-            <option value="débito">Cartão de débito</option>
-          </select>
-        </label>
-
-        <label htmlFor="tag">
-          Tag:
-          <select name="tag" id="tag" value="nada ainda">
-            <option value="alimentacão">Alimentação</option>
-            <option value="lazer">Lazer</option>
-            <option value="trabalho">Trabalho</option>
-            <option value="transporte">Transporte</option>
-            <option value="saúde">Saúde</option>
-          </select>
-        </label>
-
+        <PaymentMethod value={ payment } handleChange={ this.handleChange } />
+        <Tag value={ tag } handleChange={ this.handleChange } />
         <label htmlFor="description">
           Descrição:
           <input
             type="text"
             name="description"
             id="description"
+            value={ description }
+            onChange={ this.handleChange }
           />
         </label>
       </form>
