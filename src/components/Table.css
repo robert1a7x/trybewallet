@@ -3,7 +3,7 @@ table {
   padding: 10px;
 }
 
-th, td, tr {
+th , td , tr {
   padding: 5px 20px;
   text-align: center;
 }
@@ -19,11 +19,11 @@ td {
 }
 
 table button {
+  background-color: rgb(233, 86, 86);
   border: none;
   border-radius: 4px;
   color: white;
-  padding: 4px 8px;
-  background-color: rgb(233, 86, 86);
   cursor: pointer;
   font-size: 14px;
+  padding: 4px 8px;
 }
