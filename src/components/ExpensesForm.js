@@ -58,6 +58,11 @@ class ExpensesForm extends Component {
 
     this.setState((prevState) => ({
       id: prevState.id + 1,
+      value: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+      description: '',
     }));
   }
 
