@@ -6,7 +6,7 @@ export default class Tag extends Component {
     const { value, handleChange } = this.props;
     return (
       <label htmlFor="tag">
-        Tag:
+        Tag
         <select name="tag" id="tag" value={ value } onChange={ handleChange }>
           <option value="Alimentacão">Alimentação</option>
           <option value="Lazer">Lazer</option>

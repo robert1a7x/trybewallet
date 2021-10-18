@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteExpense as deleteExpenseAction } from '../actions';
+import './Table.css';
 
 class Table extends Component {
   constructor() {
@@ -21,7 +22,6 @@ class Table extends Component {
 
     return (
       <table>
-        <caption>Despesas</caption>
         <thead>
           <tr>
             <th>Descrição</th>

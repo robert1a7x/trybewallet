@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { getEmail as getEmailAction } from '../actions';
+import './Login.css';
 
 const regex = /\S+@\S+\.\S+/;
 
@@ -52,7 +53,8 @@ class Login extends React.Component {
     const { email, password, disabled } = this.state;
 
     return (
-      <div>
+      <div className="login-container">
+        <h1>Trybewallet</h1>
         <input
           data-testid="email-input"
           type="email"
@@ -62,6 +64,7 @@ class Login extends React.Component {
           onChange={ this.handleChange }
           value={ email }
         />
+        <br />
         <input
           data-testid="password-input"
           type="password"

@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ExpensesForm from '../components/ExpensesForm';
 import Table from '../components/Table';
+import './Wallet.css';
 
 class Wallet extends React.Component {
   render() {
@@ -15,11 +16,13 @@ class Wallet extends React.Component {
 
     return (
       <>
-        <header>
-          <div data-testid="email-field">{ `Email: ${email}` }</div>
-          <div>
+        <header className="header-container">
+          <h1>Trybewallet</h1>
+          <div className="email" data-testid="email-field">{ `Email: ${email}` }</div>
+          <p>
             Despesa total:
             { ' ' }
+            R$
             <span data-testid="total-field">
               {
                 !totalExpense
@@ -28,7 +31,7 @@ class Wallet extends React.Component {
               }
             </span>
             <span data-testid="header-currency-field"> BRL</span>
-          </div>
+          </p>
         </header>
         <ExpensesForm />
         <Table />

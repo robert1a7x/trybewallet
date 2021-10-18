@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PaymentMethod from './PaymentMethod';
 import Tag from './Tag';
 import { fetchCurrencies, getExpenses } from '../actions';
+import './ExpensesForm.css';
 
 class ExpensesForm extends Component {
   constructor() {
@@ -73,7 +74,7 @@ class ExpensesForm extends Component {
     return (
       <form>
         <label htmlFor="value">
-          Valor:
+          Valor
           <input
             type="number"
             name="value"
@@ -83,7 +84,7 @@ class ExpensesForm extends Component {
           />
         </label>
         <label htmlFor="currency">
-          Moeda:
+          Moeda
           <select
             name="currency"
             id="currency"
@@ -98,7 +99,7 @@ class ExpensesForm extends Component {
         <PaymentMethod value={ method } handleChange={ this.handleChange } />
         <Tag value={ tag } handleChange={ this.handleChange } />
         <label htmlFor="description">
-          Descrição:
+          Descrição
           <input
             type="text"
             name="description"
