@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { deleteExpense as deleteExpenseAction } from '../actions';
 import './Table.css';
 
+var formatter = new Intl.NumberFormat('pt-br', {
+  style: 'currency',
+  currency: 'BRL',
+});
+
 class Table extends Component {
   constructor() {
     super();
@@ -32,7 +37,7 @@ class Table extends Component {
             <th>Câmbio utilizado</th>
             <th>Valor convertido</th>
             <th>Moeda de conversão</th>
-            <th>Editar/Excluir</th>
+            <th>Excluir</th>
           </tr>
         </thead>
         <tbody>
@@ -41,14 +46,14 @@ class Table extends Component {
               <td>{ expense.description }</td>
               <td>{ expense.tag }</td>
               <td>{ expense.method }</td>
-              <td>{ expense.value }</td>
+              <td>{ formatter.format(expense.value) }</td>
               <td>{ expense.exchangeRates[expense.currency].name.split('/')[0] }</td>
               <td>
                 {parseFloat(expense.exchangeRates[expense.currency].ask).toFixed(2)}
               </td>
               <td>
-                { (parseFloat(expense.value)
-                  * parseFloat(expense.exchangeRates[expense.currency].ask)).toFixed(2) }
+                { formatter.format((parseFloat(expense.value)
+                  * parseFloat(expense.exchangeRates[expense.currency].ask))) }
               </td>
               <td>Real</td>
               <td>

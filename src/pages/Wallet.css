@@ -7,6 +7,10 @@
   width: 95%;
 }
 
+.header-container a {
+  text-decoration: none;
+}
+
 .email {
   margin-left: 35%;
 }

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ExpensesForm from '../components/ExpensesForm';
 import Table from '../components/Table';
 import './Wallet.css';
@@ -17,17 +18,18 @@ class Wallet extends React.Component {
     return (
       <>
         <header className="header-container">
-          <h1>Trybewallet</h1>
+          <Link to="/">
+            <h1>Trybewallet</h1>
+          </Link>
           <div className="email" data-testid="email-field">{ `Email: ${email}` }</div>
           <p>
             Despesa total:
             { ' ' }
-            R$
             <span data-testid="total-field">
               {
                 !totalExpense
                   ? '0'
-                  : totalExpense.toFixed(2)
+                  : totalExpense.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
               }
             </span>
             <span data-testid="header-currency-field"> BRL</span>
