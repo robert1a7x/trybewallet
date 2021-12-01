@@ -45,3 +45,6 @@ cd src/ && npm start
 ```
 
 ## Gif da aplicação
+
+![2021-12-01 12-13-31](https://user-images.githubusercontent.com/79478208/144265030-76c2c9a8-9ad5-40b7-8054-631bea2af632.gif)
+
