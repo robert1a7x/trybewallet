@@ -30,7 +30,7 @@ Neste projeto foi desenvolvida uma carteira de controle de gastos com conversor 
 
 ```bash
 
-cd src/
+cd trybewallet/
 
 npm install
 
@@ -40,7 +40,7 @@ npm install
 
 ```
 
-cd src/ && npm start
+cd trybewallet/ && npm start
 
 ```
 
