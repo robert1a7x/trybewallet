@@ -14,7 +14,7 @@ Neste projeto foi desenvolvida uma carteira de controle de gastos com conversor 
 
   
 
-## Técnologias usadas
+## Tecnologias usadas
 
 
 > Desenvolvido usando: React, React Router, Redux, Javascript, CSS3, HTML5, ES6
